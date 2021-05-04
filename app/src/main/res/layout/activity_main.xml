@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="389dp"
+        android:layout_height="406dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginBottom="150dp"
+        android:background="@color/white"
+        app:columnCount="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:rowCount="4">
+
+        <ImageButton
+            android:id="@+id/a1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="a1"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/a2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="a2"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/a3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="a3"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/a4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="a4"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/b1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="b1"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/b2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="b2"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/b3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="b3"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/b4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="b4"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/c1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="c1"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/c2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="c2"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/c3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="c3"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/c4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="c4"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/d1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="d1"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/d2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="d2"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/d3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="d3"
+            app:srcCompat="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/d4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="onClick"
+            android:tag="d4"
+            app:srcCompat="@drawable/question" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="347dp"
+        android:layout_height="151dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginRight="34dp"
+        android:layout_marginBottom="20dp"
+        android:text='Click one space at a time. "+" or "-" will appear at random. You win if there are 4 "+" in a row and lose if there are 4 "-" in a row.'
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
