@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="a1"
+            android:tag="0"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="a2"
+            android:tag="1"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="a3"
+            android:tag="2"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="a4"
+            android:tag="3"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="b1"
+            android:tag="4"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="b2"
+            android:tag="5"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="b3"
+            android:tag="6"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="b4"
+            android:tag="7"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="c1"
+            android:tag="8"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="c2"
+            android:tag="9"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="c3"
+            android:tag="10"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="c4"
+            android:tag="11"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -138,7 +138,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="d1"
+            android:tag="12"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -147,7 +147,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="d2"
+            android:tag="13"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -156,7 +156,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="d3"
+            android:tag="14"
             app:srcCompat="@drawable/question" />
 
         <ImageButton
@@ -165,7 +165,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:onClick="onClick"
-            android:tag="d4"
+            android:tag="15"
             app:srcCompat="@drawable/question" />
 
     </androidx.gridlayout.widget.GridLayout>
