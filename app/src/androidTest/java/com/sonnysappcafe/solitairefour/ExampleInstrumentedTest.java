@@ -1,4 +1,4 @@
-package com.example.solitairefour;
+package com.sonnysappcafe.solitairefour;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.solitairefour", appContext.getPackageName());
+        assertEquals("com.sonnysappcafe.solitairefour", appContext.getPackageName());
     }
 }

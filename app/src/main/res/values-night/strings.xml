@@ -1,8 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Solitaire Four</string>
     <string name="error">Error</string>
     <string name="not_image_button">View is not ImageButton</string>
-    <string name="instructions">Click one space at a time. \"+\" or \"-\" will appear at random. You win if there are 4 \"+\" in a row and lose if there are 4 \"-\" in a row.</string>
+    <string name="instructions">Click one space at a time. \"+\" or \"−\" will appear at random. You win if there are 4 \"+\" in a row and lose if there are 4 \"−\" in a row.</string>
     <string name="win">YOU WIN</string>
     <string name="lose">YOU LOSE</string>
     <string name="tie">YOU TIE</string>

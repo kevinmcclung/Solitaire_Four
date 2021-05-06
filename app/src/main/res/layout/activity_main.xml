@@ -29,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/a1"
             android:onClick="onClick"
             android:tag="0"
             app:srcCompat="@drawable/question" />
@@ -38,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/a2"
             android:onClick="onClick"
             android:tag="1"
             app:srcCompat="@drawable/question" />
@@ -47,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/a3"
             android:onClick="onClick"
             android:tag="2"
             app:srcCompat="@drawable/question" />
@@ -56,6 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/a4"
             android:onClick="onClick"
             android:tag="3"
             app:srcCompat="@drawable/question" />
@@ -65,6 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/b1"
             android:onClick="onClick"
             android:tag="4"
             app:srcCompat="@drawable/question" />
@@ -74,6 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/b2"
             android:onClick="onClick"
             android:tag="5"
             app:srcCompat="@drawable/question" />
@@ -83,6 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/b3"
             android:onClick="onClick"
             android:tag="6"
             app:srcCompat="@drawable/question" />
@@ -92,6 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/b4"
             android:onClick="onClick"
             android:tag="7"
             app:srcCompat="@drawable/question" />
@@ -101,6 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/c1"
             android:onClick="onClick"
             android:tag="8"
             app:srcCompat="@drawable/question" />
@@ -110,6 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/c2"
             android:onClick="onClick"
             android:tag="9"
             app:srcCompat="@drawable/question" />
@@ -119,6 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/c3"
             android:onClick="onClick"
             android:tag="10"
             app:srcCompat="@drawable/question" />
@@ -128,6 +139,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/c4"
             android:onClick="onClick"
             android:tag="11"
             app:srcCompat="@drawable/question" />
@@ -137,6 +149,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/d1"
             android:onClick="onClick"
             android:tag="12"
             app:srcCompat="@drawable/question" />
@@ -146,6 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/d2"
             android:onClick="onClick"
             android:tag="13"
             app:srcCompat="@drawable/question" />
@@ -155,6 +169,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/d3"
             android:onClick="onClick"
             android:tag="14"
             app:srcCompat="@drawable/question" />
@@ -164,6 +179,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:contentDescription="@string/d4"
             android:onClick="onClick"
             android:tag="15"
             app:srcCompat="@drawable/question" />
@@ -182,7 +198,7 @@
         android:layout_marginBottom="20dp"
         android:clickable="false"
         android:onClick="restartGame"
-        android:text='Click one space at a time. "+" or "-" will appear at random. You win if there are 4 "+" in a row and lose if there are 4 "-" in a row.'
+        android:text="@string/instructions"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"

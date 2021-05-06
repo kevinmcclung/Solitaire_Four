@@ -1,8 +1,6 @@
-package com.example.solitairefour;
+package com.sonnysappcafe.solitairefour;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -69,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         //To avoid throwing an Exception, do not use this method for any non-ImageButton views.
         try {
             ImageButton imageButton = (ImageButton) view;
-            Drawable drawable;
             if(num < 0.5) {
                 try {
                     gameState[Integer.parseInt(view.getTag().toString())] = 1;
@@ -79,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
                     Log.e("Error", e.getMessage());
                 }
                 if(isGameOver()) {
-                    Toast.makeText(this, "YOU WIN", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getString(R.string.win), Toast.LENGTH_LONG).show();
                     endGame();
                 } else if(countdownToTie == 0) {
-                    Toast.makeText(this, "YOU TIE", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getString(R.string.tie), Toast.LENGTH_LONG).show();
                     endGame();
                 }
             } else {
@@ -91,20 +88,18 @@ public class MainActivity extends AppCompatActivity {
                     imageButton.setImageResource(R.drawable.minus);
                     countdownToTie--;
                 } catch(NumberFormatException e) {
-                    Log.e("Error", e.getMessage());
+                    Log.e(getString(R.string.error), e.getMessage());
                 }
                 if(isGameOver()) {
-                    Toast.makeText(this, "YOU LOSE", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getString(R.string.lose), Toast.LENGTH_LONG).show();
                     endGame();
                 } else if(countdownToTie == 0) {
-                    Toast.makeText(this, "YOU TIE", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getString(R.string.tie), Toast.LENGTH_LONG).show();
                     endGame();
                 }
             }
-            Log.i("id", view.getTag().toString());
-            Log.i("spaces left", Integer.valueOf(countdownToTie).toString());
         } catch(Exception e) {
-            Log.e("Error", "View is not ImageButton");
+            Log.e(getString(R.string.error), getString(R.string.not_image_button));
         }
     }
 
@@ -127,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void endGame() {
         TextView textView = findViewById(R.id.textView);
-        textView.setText("Press here to play again.");
+        textView.setText(getString(R.string.replay));
         for(ImageButton imageButton: imageButtons) {
             imageButton.setClickable(false);
         }
@@ -141,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         countdownToTie = 16;
 
         textView.setClickable(false);
-        textView.setText("Click one space at a time. \"+\" or \"-\" will appear at random. You win if there are 4 \"+\" in a row and lose if there are 4 \"-\" in a row.");
+        textView.setText(R.string.instructions);
         for(ImageButton imageButton: imageButtons) {
             imageButton.setImageResource(R.drawable.question);
             imageButton.setClickable(true);
