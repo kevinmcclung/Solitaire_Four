@@ -1,15 +1,13 @@
 package com.example.solitairefour;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
@@ -20,15 +18,54 @@ public class MainActivity extends AppCompatActivity {
     int[] gameState = new int[16];
     //0 unoccupied, 1 +, 2 -
 
+    //I cannot figure a way to reset all ImageButton views at once, so I am taking a more brute force approach for now.
+    ImageButton a1;
+    ImageButton a2;
+    ImageButton a3;
+    ImageButton a4;
+    ImageButton b1;
+    ImageButton b2;
+    ImageButton b3;
+    ImageButton b4;
+    ImageButton c1;
+    ImageButton c2;
+    ImageButton c3;
+    ImageButton c4;
+    ImageButton d1;
+    ImageButton d2;
+    ImageButton d3;
+    ImageButton d4;
+    ImageButton[] imageButtons;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        a1 = findViewById(R.id.a1);
+        a2 = findViewById(R.id.a2);
+        a3 = findViewById(R.id.a3);
+        a4 = findViewById(R.id.a4);
+        b1 = findViewById(R.id.b1);
+        b2 = findViewById(R.id.b2);
+        b3 = findViewById(R.id.b3);
+        b4 = findViewById(R.id.b4);
+        c1 = findViewById(R.id.c1);
+        c2 = findViewById(R.id.c2);
+        c3 = findViewById(R.id.c3);
+        c4 = findViewById(R.id.c4);
+        d1 = findViewById(R.id.d1);
+        d2 = findViewById(R.id.d2);
+        d3 = findViewById(R.id.d3);
+        d4 = findViewById(R.id.d4);
+        imageButtons = new ImageButton[] {a1, a2, a3, a4, b1, b2, b3, b4, c1, c2, c3, c4, d1, d2, d3, d4};
     }
 
     public void onClick(View view) {
         Random random = new Random();
         double num = random.nextDouble();
+        view.setClickable(false);
         //To avoid throwing an Exception, do not use this method for any non-ImageButton views.
         try {
             ImageButton imageButton = (ImageButton) view;
@@ -64,12 +101,8 @@ public class MainActivity extends AppCompatActivity {
                     endGame();
                 }
             }
-            view.setClickable(false);
             Log.i("id", view.getTag().toString());
             Log.i("spaces left", Integer.valueOf(countdownToTie).toString());
-            if(isGameOver()) {
-                endGame();
-            }
         } catch(Exception e) {
             Log.e("Error", "View is not ImageButton");
         }
@@ -80,27 +113,39 @@ public class MainActivity extends AppCompatActivity {
          *0/4/8/12, 1/5/9/13, 2/6/10/14, 3/7/11/15,
          * 0/5/10/15, 3/6/9/12
          */
-        if((gameState[0] == gameState[1] && gameState[1] == gameState[2] && gameState[2] == gameState[3] && gameState[3] != 0)
-                || (gameState[4] == gameState[5] && gameState[5] == gameState[6] && gameState[6] == gameState[7] &&  gameState[7] != 0)
-                || (gameState[8] == gameState[9] && gameState[9] == gameState[10] && gameState[10] == gameState[11] &&  gameState[11] != 0)
-                || (gameState[12] == gameState[13] && gameState[13] == gameState[14] && gameState[14] == gameState[15] &&  gameState[15] != 0)
-                || (gameState[0] == gameState[4] && gameState[4] == gameState[8] && gameState[8] == gameState[12] &&  gameState[12] != 0)
-                || (gameState[1] == gameState[5] && gameState[5] == gameState[9] && gameState[9] == gameState[13] &&  gameState[13] != 0)
-                || (gameState[2] == gameState[6] && gameState[6] == gameState[10] && gameState[10] == gameState[14] &&  gameState[14] != 0)
-                || (gameState[3] == gameState[7] && gameState[7] == gameState[11] && gameState[11] == gameState[15] &&  gameState[15] != 0)
-                || (gameState[0] == gameState[5] && gameState[5] == gameState[10] && gameState[10] == gameState[15] &&  gameState[15] != 0)
-                || (gameState[3] == gameState[6] && gameState[6] == gameState[9] && gameState[9] == gameState[12] &&  gameState[12] != 0)
-        ) {
-
-            return true;
-        }
-        return false;
+        return (gameState[0] == gameState[1] && gameState[1] == gameState[2] && gameState[2] == gameState[3] && gameState[3] != 0)
+                || (gameState[4] == gameState[5] && gameState[5] == gameState[6] && gameState[6] == gameState[7] && gameState[7] != 0)
+                || (gameState[8] == gameState[9] && gameState[9] == gameState[10] && gameState[10] == gameState[11] && gameState[11] != 0)
+                || (gameState[12] == gameState[13] && gameState[13] == gameState[14] && gameState[14] == gameState[15] && gameState[15] != 0)
+                || (gameState[0] == gameState[4] && gameState[4] == gameState[8] && gameState[8] == gameState[12] && gameState[12] != 0)
+                || (gameState[1] == gameState[5] && gameState[5] == gameState[9] && gameState[9] == gameState[13] && gameState[13] != 0)
+                || (gameState[2] == gameState[6] && gameState[6] == gameState[10] && gameState[10] == gameState[14] && gameState[14] != 0)
+                || (gameState[3] == gameState[7] && gameState[7] == gameState[11] && gameState[11] == gameState[15] && gameState[15] != 0)
+                || (gameState[0] == gameState[5] && gameState[5] == gameState[10] && gameState[10] == gameState[15] && gameState[15] != 0)
+                || (gameState[3] == gameState[6] && gameState[6] == gameState[9] && gameState[9] == gameState[12] && gameState[12] != 0);
     }
 
     public void endGame() {
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
+        TextView textView = findViewById(R.id.textView);
+        textView.setText("Press here to play again.");
+        for(ImageButton imageButton: imageButtons) {
+            imageButton.setClickable(false);
+        }
+        textView.setClickable(true);
+    }
+
+    public void restartGame(View view) {
+        TextView textView = (TextView) view;
+
+        gameState = new int[16];
+        countdownToTie = 16;
+
+        textView.setClickable(false);
+        textView.setText("Click one space at a time. \"+\" or \"-\" will appear at random. You win if there are 4 \"+\" in a row and lose if there are 4 \"-\" in a row.");
+        for(ImageButton imageButton: imageButtons) {
+            imageButton.setImageResource(R.drawable.question);
+            imageButton.setClickable(true);
+        }
     }
 
 }

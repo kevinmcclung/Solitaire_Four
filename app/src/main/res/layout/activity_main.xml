@@ -180,6 +180,8 @@
         android:layout_marginEnd="34dp"
         android:layout_marginRight="34dp"
         android:layout_marginBottom="20dp"
+        android:clickable="false"
+        android:onClick="restartGame"
         android:text='Click one space at a time. "+" or "-" will appear at random. You win if there are 4 "+" in a row and lose if there are 4 "-" in a row.'
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
