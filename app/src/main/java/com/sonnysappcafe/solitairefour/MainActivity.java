@@ -13,8 +13,9 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     int countdownToTie = 16;
-    int[] gameState = new int[16];
+
     //0 unoccupied, 1 +, 2 -
+    int[] gameState = new int[16];
 
     //I cannot figure a way to reset all ImageButton views at once, so I am taking a more brute force approach for now.
     ImageButton a1;
