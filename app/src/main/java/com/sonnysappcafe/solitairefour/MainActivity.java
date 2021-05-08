@@ -10,11 +10,14 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+//To Do: Test on different emulators, especially for constraints. Experiment with colors and image resources. Add difficulty levels (higher/lower chance of "+").
+
 public class MainActivity extends AppCompatActivity {
 
     int countdownToTie = 16;
-    int[] gameState = new int[16];
+
     //0 unoccupied, 1 +, 2 -
+    int[] gameState = new int[16];
 
     //I cannot figure a way to reset all ImageButton views at once, so I am taking a more brute force approach for now.
     ImageButton a1;
@@ -67,20 +70,19 @@ public class MainActivity extends AppCompatActivity {
         //To avoid throwing an Exception, do not use this method for any non-ImageButton views.
         try {
             ImageButton imageButton = (ImageButton) view;
+            //eventually replace 0.5 with variable to allow for different levels of difficulty
             if(num < 0.5) {
                 try {
                     gameState[Integer.parseInt(view.getTag().toString())] = 1;
                     imageButton.setImageResource(R.drawable.plus);
                     countdownToTie--;
                 } catch(NumberFormatException e) {
-                    Log.e("Error", e.getMessage());
+                    Log.e(getString(R.string.error), e.getMessage());
                 }
-                if(isGameOver()) {
+                if(isGameOverNoTie()) {
                     Toast.makeText(this, getString(R.string.win), Toast.LENGTH_LONG).show();
                     endGame();
-                } else if(countdownToTie == 0) {
-                    Toast.makeText(this, getString(R.string.tie), Toast.LENGTH_LONG).show();
-                    endGame();
+                    return; //prevent tie from overriding win, no more code affecting win
                 }
             } else {
                 try {
@@ -90,20 +92,22 @@ public class MainActivity extends AppCompatActivity {
                 } catch(NumberFormatException e) {
                     Log.e(getString(R.string.error), e.getMessage());
                 }
-                if(isGameOver()) {
+                if(isGameOverNoTie()) {
                     Toast.makeText(this, getString(R.string.lose), Toast.LENGTH_LONG).show();
                     endGame();
-                } else if(countdownToTie == 0) {
-                    Toast.makeText(this, getString(R.string.tie), Toast.LENGTH_LONG).show();
-                    endGame();
+                    return; //prevent tie from overriding loss, no more code affecting loss
                 }
+            }
+            if(countdownToTie == 0) {
+                Toast.makeText(this, getString(R.string.tie), Toast.LENGTH_LONG).show();
+                endGame();
             }
         } catch(Exception e) {
             Log.e(getString(R.string.error), getString(R.string.not_image_button));
         }
     }
 
-    public boolean isGameOver() {
+    public boolean isGameOverNoTie() {
         /*game-ending combinations are 0/1/2/3, 4/5/6/7, 8/9/10/11, 12/13/14/15,
          *0/4/8/12, 1/5/9/13, 2/6/10/14, 3/7/11/15,
          * 0/5/10/15, 3/6/9/12
