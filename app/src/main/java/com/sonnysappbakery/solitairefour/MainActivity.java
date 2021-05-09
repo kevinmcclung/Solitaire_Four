@@ -1,21 +1,31 @@
-package com.sonnysappcafe.solitairefour;
+/*
+ * SOLITAIRE FOUR
+ *
+ * Put your psychic abilities to the test and get four in a row!
+ * Each time you press a question box, a plus sign or a minus sign will appear.
+ * By default, there is a 50% chance of each box containing a plus sign.
+ * You can adjust the probability of one appearing.
+ * This will make the game easier or harder.
+ */
+
+package com.sonnysappbakery.solitairefour;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
 
-//To Do: Test on different emulators, especially for constraints. Experiment with colors and image resources. Add difficulty levels (higher/lower chance of "+").
-
 public class MainActivity extends AppCompatActivity {
 
     int countdownToTie = 16;
-
+    double probability = 0.5;
     //0 unoccupied, 1 +, 2 -
     int[] gameState = new int[16];
 
@@ -38,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
     ImageButton d4;
     ImageButton[] imageButtons;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +69,26 @@ public class MainActivity extends AppCompatActivity {
         d2 = findViewById(R.id.d2);
         d3 = findViewById(R.id.d3);
         d4 = findViewById(R.id.d4);
-        imageButtons = new ImageButton[] {a1, a2, a3, a4, b1, b2, b3, b4, c1, c2, c3, c4, d1, d2, d3, d4};
+        imageButtons = new ImageButton[]{a1, a2, a3, a4, b1, b2, b3, b4, c1, c2, c3, c4, d1, d2, d3, d4};
+
+        SeekBar seekBar = findViewById(R.id.seekBar);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                probability = 1 - progress / 100.0;
+                Log.i("probability", String.valueOf(probability));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                //unnecessary
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                //unnecessary
+            }
+        });
     }
 
     public void onClick(View view) {
@@ -70,16 +98,15 @@ public class MainActivity extends AppCompatActivity {
         //To avoid throwing an Exception, do not use this method for any non-ImageButton views.
         try {
             ImageButton imageButton = (ImageButton) view;
-            //eventually replace 0.5 with variable to allow for different levels of difficulty
-            if(num < 0.5) {
+            if (num < probability) {
                 try {
                     gameState[Integer.parseInt(view.getTag().toString())] = 1;
                     imageButton.setImageResource(R.drawable.plus);
                     countdownToTie--;
-                } catch(NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     Log.e(getString(R.string.error), e.getMessage());
                 }
-                if(isGameOverNoTie()) {
+                if (isGameOverNoTie()) {
                     Toast.makeText(this, getString(R.string.win), Toast.LENGTH_LONG).show();
                     endGame();
                     return; //prevent tie from overriding win, no more code affecting win
@@ -89,20 +116,20 @@ public class MainActivity extends AppCompatActivity {
                     gameState[Integer.parseInt(view.getTag().toString())] = 2;
                     imageButton.setImageResource(R.drawable.minus);
                     countdownToTie--;
-                } catch(NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     Log.e(getString(R.string.error), e.getMessage());
                 }
-                if(isGameOverNoTie()) {
+                if (isGameOverNoTie()) {
                     Toast.makeText(this, getString(R.string.lose), Toast.LENGTH_LONG).show();
                     endGame();
                     return; //prevent tie from overriding loss, no more code affecting loss
                 }
             }
-            if(countdownToTie == 0) {
+            if (countdownToTie == 0) {
                 Toast.makeText(this, getString(R.string.tie), Toast.LENGTH_LONG).show();
                 endGame();
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             Log.e(getString(R.string.error), getString(R.string.not_image_button));
         }
     }
@@ -127,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
     public void endGame() {
         TextView textView = findViewById(R.id.textView);
         textView.setText(getString(R.string.replay));
-        for(ImageButton imageButton: imageButtons) {
+        for (ImageButton imageButton : imageButtons) {
             imageButton.setClickable(false);
         }
         textView.setClickable(true);
@@ -141,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
 
         textView.setClickable(false);
         textView.setText(R.string.instructions);
-        for(ImageButton imageButton: imageButtons) {
+        for (ImageButton imageButton : imageButtons) {
             imageButton.setImageResource(R.drawable.question);
             imageButton.setClickable(true);
         }

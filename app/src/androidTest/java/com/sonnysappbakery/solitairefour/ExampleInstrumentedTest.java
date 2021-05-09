@@ -1,4 +1,4 @@
-package com.sonnysappcafe.solitairefour;
+package com.sonnysappbakery.solitairefour;
 
 import android.content.Context;
 

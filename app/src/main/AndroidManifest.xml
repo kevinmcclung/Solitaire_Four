@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sonnysappcafe.solitairefour">
+    package="com.sonnysappbakery.solitairefour">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SolitaireFour"
         android:fullBackupContent="@xml/backup_descriptor">
-        <activity android:name="com.sonnysappcafe.solitairefour.MainActivity">
+        <activity android:name="com.sonnysappbakery.solitairefour.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
