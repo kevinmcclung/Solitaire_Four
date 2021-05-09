@@ -2,219 +2,251 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="347dp"
-        android:layout_height="151dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:clickable="false"
-        android:onClick="restartGame"
-        android:text="@string/instructions"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="395dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:progress="50"
-        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView" />
-
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/gridLayout"
-        android:layout_width="288dp"
-        android:layout_height="325dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="100dp"
-        android:background="@color/white"
-        app:columnCount="4"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/seekBar"
-        app:rowCount="4">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/a1"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/a1"
-            android:onClick="onClick"
-            android:tag="0"
-            app:srcCompat="@drawable/question" />
+            android:layout_weight="10"
+            android:clickable="false"
+            android:onClick="restartGame"
+            android:text="@string/instructions"
+            android:textSize="30sp" />
 
-        <ImageButton
-            android:id="@+id/a2"
-            android:layout_width="wrap_content"
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/a2"
-            android:onClick="onClick"
-            android:tag="1"
-            app:srcCompat="@drawable/question" />
+            android:layout_weight="10"
+            android:progress="50" />
 
-        <ImageButton
-            android:id="@+id/a3"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/a3"
-            android:onClick="onClick"
-            android:tag="2"
-            app:srcCompat="@drawable/question" />
+            android:layout_weight="20"
+            android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/a4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/a4"
-            android:onClick="onClick"
-            android:tag="3"
-            app:srcCompat="@drawable/question" />
+            <LinearLayout
+                android:id="@+id/firstRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="25"
+                android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/b1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/b1"
-            android:onClick="onClick"
-            android:tag="4"
-            app:srcCompat="@drawable/question" />
+                <ImageButton
+                    android:id="@+id/a1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/a1"
+                    android:onClick="onClick"
+                    android:tag="0"
+                    app:srcCompat="@drawable/question" />
 
-        <ImageButton
-            android:id="@+id/b2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/b2"
-            android:onClick="onClick"
-            android:tag="5"
-            app:srcCompat="@drawable/question" />
+                <ImageButton
+                    android:id="@+id/a2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/a2"
+                    android:onClick="onClick"
+                    android:tag="1"
+                    app:srcCompat="@drawable/question" />
 
-        <ImageButton
-            android:id="@+id/b3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/b3"
-            android:onClick="onClick"
-            android:tag="6"
-            app:srcCompat="@drawable/question" />
+                <ImageButton
+                    android:id="@+id/a3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/a3"
+                    android:onClick="onClick"
+                    android:tag="2"
+                    app:srcCompat="@drawable/question" />
 
-        <ImageButton
-            android:id="@+id/b4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/b4"
-            android:onClick="onClick"
-            android:tag="7"
-            app:srcCompat="@drawable/question" />
+                <ImageButton
+                    android:id="@+id/a4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/a4"
+                    android:onClick="onClick"
+                    android:tag="3"
+                    app:srcCompat="@drawable/question" />
+            </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/c1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/c1"
-            android:onClick="onClick"
-            android:tag="8"
-            app:srcCompat="@drawable/question" />
+            <LinearLayout
+                android:id="@+id/secondRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="25"
+                android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/c2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/c2"
-            android:onClick="onClick"
-            android:tag="9"
-            app:srcCompat="@drawable/question" />
+                <ImageButton
+                    android:id="@+id/b1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/b1"
+                    android:onClick="onClick"
+                    android:tag="4"
+                    app:srcCompat="@drawable/question" />
 
-        <ImageButton
-            android:id="@+id/c3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/c3"
-            android:onClick="onClick"
-            android:tag="10"
-            app:srcCompat="@drawable/question" />
+                <ImageButton
+                    android:id="@+id/b2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/b2"
+                    android:onClick="onClick"
+                    android:tag="5"
+                    app:srcCompat="@drawable/question" />
 
-        <ImageButton
-            android:id="@+id/c4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/c4"
-            android:onClick="onClick"
-            android:tag="11"
-            app:srcCompat="@drawable/question" />
+                <ImageButton
+                    android:id="@+id/b3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/b3"
+                    android:onClick="onClick"
+                    android:tag="6"
+                    app:srcCompat="@drawable/question" />
 
-        <ImageButton
-            android:id="@+id/d1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/d1"
-            android:onClick="onClick"
-            android:tag="12"
-            app:srcCompat="@drawable/question" />
+                <ImageButton
+                    android:id="@+id/b4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/b4"
+                    android:onClick="onClick"
+                    android:tag="7"
+                    app:srcCompat="@drawable/question" />
+            </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/d2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/d2"
-            android:onClick="onClick"
-            android:tag="13"
-            app:srcCompat="@drawable/question" />
+            <LinearLayout
+                android:id="@+id/thirdRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="25"
+                android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/d3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/d3"
-            android:onClick="onClick"
-            android:tag="14"
-            app:srcCompat="@drawable/question" />
+                <ImageButton
+                    android:id="@+id/c1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/c1"
+                    android:onClick="onClick"
+                    android:tag="8"
+                    app:srcCompat="@drawable/question" />
 
-        <ImageButton
-            android:id="@+id/d4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:contentDescription="@string/d4"
-            android:onClick="onClick"
-            android:tag="15"
-            app:srcCompat="@drawable/question" />
+                <ImageButton
+                    android:id="@+id/c2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/c2"
+                    android:onClick="onClick"
+                    android:tag="9"
+                    app:srcCompat="@drawable/question" />
 
-    </androidx.gridlayout.widget.GridLayout>
+                <ImageButton
+                    android:id="@+id/c3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/c3"
+                    android:onClick="onClick"
+                    android:tag="10"
+                    app:srcCompat="@drawable/question" />
+
+                <ImageButton
+                    android:id="@+id/c4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/c4"
+                    android:onClick="onClick"
+                    android:tag="11"
+                    app:srcCompat="@drawable/question" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fourthRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="25"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/d1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/d1"
+                    android:onClick="onClick"
+                    android:tag="12"
+                    app:srcCompat="@drawable/question" />
+
+                <ImageButton
+                    android:id="@+id/d2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/d2"
+                    android:onClick="onClick"
+                    android:tag="13"
+                    app:srcCompat="@drawable/question" />
+
+                <ImageButton
+                    android:id="@+id/d3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/d3"
+                    android:onClick="onClick"
+                    android:tag="14"
+                    app:srcCompat="@drawable/question" />
+
+                <ImageButton
+                    android:id="@+id/d4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:background="@color/white"
+                    android:contentDescription="@string/d4"
+                    android:onClick="onClick"
+                    android:tag="15"
+                    app:srcCompat="@drawable/question" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
