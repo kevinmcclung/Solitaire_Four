@@ -2,6 +2,8 @@
     <string name="app_name">Solitaire Four</string>
     <string name="error">Error</string>
     <string name="not_image_button">View is not ImageButton</string>
+    <string name="text_view_content">Get 4 in a row to win. Slide bar left to make it easier or right to make it harder.</string>
+    <string name="seek_bar_content">Slide bar to adjust difficulty</string>
     <string name="instructions">Get 4 \"+\" in a row to win! Slide the bar to the left to make it easier or to the right to make it harder.</string>
     <string name="win">YOU WIN</string>
     <string name="lose">YOU LOSE</string>
