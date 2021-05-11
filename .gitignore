@@ -14,3 +14,9 @@
 .cxx
 local.properties
 *.apk
+*.aab
+*.gradle
+*.DS_Store
+*.externalNativeBuild
+*.cxx
+*local.properties
