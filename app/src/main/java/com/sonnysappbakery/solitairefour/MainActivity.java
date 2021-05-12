@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
         countdownToTie = 16;
 
         textView.setClickable(false);
-        textView.setText(R.string.instructions);
+        textView.setText(R.string.text_view_content);
         for (ImageButton imageButton : imageButtons) {
             imageButton.setImageResource(R.drawable.question);
             imageButton.setClickable(true);
