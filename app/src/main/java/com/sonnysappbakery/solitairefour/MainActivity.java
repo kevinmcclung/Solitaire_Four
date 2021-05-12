@@ -11,6 +11,7 @@
 package com.sonnysappbakery.solitairefour;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -24,10 +25,12 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    ConstraintLayout constraintLayout;
     int countdownToTie = 16;
     double probability = 0.5;
     //0 unoccupied, 1 +, 2 -
     int[] gameState = new int[16];
+    boolean gameOver = false;
 
     //I cannot figure a way to reset all ImageButton views at once, so I am taking a more brute force approach for now.
     ImageButton a1;
@@ -53,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        constraintLayout = findViewById(R.id.constraintLayout);
+        constraintLayout.setClickable(false);
         a1 = findViewById(R.id.a1);
         a2 = findViewById(R.id.a2);
         a3 = findViewById(R.id.a3);
@@ -120,13 +125,13 @@ public class MainActivity extends AppCompatActivity {
                     Log.e(getString(R.string.error), e.getMessage());
                 }
                 if (isGameOverNoTie()) {
-                    Toast.makeText(this, getString(R.string.lose), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getString(R.string.lose), Toast.LENGTH_SHORT).show();
                     endGame();
                     return; //prevent tie from overriding loss, no more code affecting loss
                 }
             }
             if (countdownToTie == 0) {
-                Toast.makeText(this, getString(R.string.tie), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, getString(R.string.tie), Toast.LENGTH_SHORT).show();
                 endGame();
             }
         } catch (Exception e) {
@@ -152,25 +157,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void endGame() {
-        TextView textView = findViewById(R.id.textView);
-        textView.setText(getString(R.string.replay));
         for (ImageButton imageButton : imageButtons) {
             imageButton.setClickable(false);
         }
-        textView.setClickable(true);
+        constraintLayout.setClickable(true);
+        gameOver = true;
     }
 
     public void restartGame(View view) {
-        TextView textView = (TextView) view;
+        if(gameOver) {
+            gameOver = false;
+            constraintLayout.setClickable(false);
 
-        gameState = new int[16];
-        countdownToTie = 16;
+            gameState = new int[16];
+            countdownToTie = 16;
 
-        textView.setClickable(false);
-        textView.setText(R.string.text_view_content);
-        for (ImageButton imageButton : imageButtons) {
-            imageButton.setImageResource(R.drawable.question);
-            imageButton.setClickable(true);
+            for (ImageButton imageButton : imageButtons) {
+                imageButton.setImageResource(R.drawable.question);
+                imageButton.setClickable(true);
+            }
         }
     }
 
