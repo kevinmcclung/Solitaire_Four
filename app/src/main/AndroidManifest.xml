@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SolitaireFour"
         android:fullBackupContent="@xml/backup_descriptor">
-        <activity android:name="com.sonnysappbakery.solitairefour.MainActivity">
+        <activity android:name="com.sonnysappbakery.solitairefour.MainActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|smallestScreenSize|screenLayout|uiMode">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
